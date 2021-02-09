@@ -1,13 +1,12 @@
-using System;
 using System.Collections.Generic;
 
 namespace Events_API.Domain.Models
 {
-    public class Game
+    public class FieldConfig
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public DateTime TimeStartUtc { get; set; }
-        public IList<Team> Teams { get; set; }
+        public FieldType Type { get; set; }
+        public IList<Field> Fields { get; set; }
     }
 }
