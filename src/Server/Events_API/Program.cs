@@ -16,7 +16,7 @@ namespace Events_API
         public static void Main(string[] args)
         {
             var host = CreateHostBuilder(args).Build();
-
+            // Ensure the database is created
             ensureDatabase(host);
 
             host.Run();

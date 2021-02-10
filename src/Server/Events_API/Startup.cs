@@ -13,6 +13,10 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
+using Events_API.Domain.Repositories;
+using Events_API.Persistence.Repositories;
+using Events_API.Domain.Services;
+using Events_API.Services;
 
 namespace Events_API
 {
@@ -34,8 +38,13 @@ namespace Events_API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Events_API", Version = "v1" });
             });
-
+            // Set up the DbContext
             services.AddDbContext<EventsDbContext>(options => options.UseSqlite(Configuration.GetConnectionString("SqliteConnection")));
+            // Add the scoped repositories/services
+            services.AddScoped<ITemplateRepository>(serviceProvider => new TemplateRepository(Configuration["TemplateDirectory"]));
+            services.AddScoped<ITemplateService, TemplateService>();
+            // Add AutoMapper
+            services.AddAutoMapper(typeof(Startup));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
