@@ -7,6 +7,6 @@ namespace Events_API.Domain.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public FieldType Type { get; set; }
-        public IList<Field> Fields { get; set; }
+        public string Data { get; set; }
     }
 }

@@ -7,6 +7,8 @@ namespace Events_API.Domain.Models
         Player_Single,
         Player_Multiple,
         Number,
-        Referee
+        Referee,
+        Dropdown,
+        TeamScores
     }
 }
