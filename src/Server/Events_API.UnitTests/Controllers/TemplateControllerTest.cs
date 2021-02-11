@@ -8,6 +8,7 @@ using Events_API.Domain.Models;
 using Events_API.Controllers;
 using Moq;
 using AutoMapper;
+using Events_API.Models.Templates;
 
 namespace Events_API.UnitTests.Controllers
 {

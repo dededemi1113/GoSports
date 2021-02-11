@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Events_API.Models
+namespace Events_API.Models.Templates
 {
     public class EventTemplateModel
     {

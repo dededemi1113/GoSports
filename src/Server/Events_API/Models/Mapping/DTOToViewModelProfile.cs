@@ -1,6 +1,9 @@
 using AutoMapper;
 using Events_API.Models;
 using Events_API.Domain.Models;
+using Events_API.Domain.Repositories.Queries;
+using Events_API.Models.Templates;
+using Events_API.Models.Responses;
 
 namespace Events_API.Models.Mapping
 {
@@ -11,6 +14,9 @@ namespace Events_API.Models.Mapping
             CreateMap<GameTemplate, GameTemplateModel>();
             CreateMap<EventTemplate, EventTemplateModel>();
             CreateMap<FieldConfig, FieldConfigModel>();
+            CreateMap<Field, FieldModel>();
+            CreateMap<Event, EventModel>();
+            CreateMap<QueryResult<Event>, QueryResultModel<EventModel>>();
         }
     }
 }

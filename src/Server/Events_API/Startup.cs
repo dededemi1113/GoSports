@@ -40,9 +40,12 @@ namespace Events_API
             });
             // Set up the DbContext
             services.AddDbContext<EventsDbContext>(options => options.UseSqlite(Configuration.GetConnectionString("SqliteConnection")));
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             // Add the scoped repositories/services
             services.AddScoped<ITemplateRepository>(serviceProvider => new TemplateRepository(Configuration["TemplateDirectory"]));
             services.AddScoped<ITemplateService, TemplateService>();
+            services.AddScoped<IEventRepository, EventRepository>();
+            services.AddScoped<IEventService, EventService>();
             // Add AutoMapper
             services.AddAutoMapper(typeof(Startup));
         }
