@@ -1,0 +1,390 @@
+[
+  {
+    "id": 1,
+    "name": "Zboncak and Sons",
+    "type": 1,
+    "referees": [
+      {
+        "id": 1,
+        "name": "Jarret Glasscock"
+      },
+      {
+        "id": 2,
+        "name": "Ruttger Owers"
+      },
+      {
+        "id": 3,
+        "name": "Johannah Lutas"
+      },
+      {
+        "id": 4,
+        "name": "Hamilton Kaes"
+      }
+    ],
+    "teams": [
+      {
+        "id": 1,
+        "name": "Rosette Lichen",
+        "players": [
+          {
+            "id": 11,
+            "name": "Cordula Finnie"
+          },
+          {
+            "id": 12,
+            "name": "Randal Critten"
+          },
+          {
+            "id": 13,
+            "name": "Silvanus Stanyforth"
+          },
+          {
+            "id": 14,
+            "name": "Torre Trail"
+          },
+          {
+            "id": 15,
+            "name": "Yoshi Beers"
+          },
+          {
+            "id": 16,
+            "name": "Bertrand Lum"
+          },
+          {
+            "id": 17,
+            "name": "Fraze Attac"
+          },
+          {
+            "id": 18,
+            "name": "Riobard Ameer-Beg"
+          },
+          {
+            "id": 19,
+            "name": "Aurilia Coiley"
+          },
+          {
+            "id": 20,
+            "name": "Manon Cosgriff"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Mojave Suncup",
+        "players": [
+          {
+            "id": 1,
+            "name": "Nicola Bartosiak"
+          },
+          {
+            "id": 2,
+            "name": "Gizela MacGhee"
+          },
+          {
+            "id": 3,
+            "name": "Lou Sodeau"
+          },
+          {
+            "id": 4,
+            "name": "Chelsey Shelliday"
+          },
+          {
+            "id": 5,
+            "name": "Bruce Vaudre"
+          },
+          {
+            "id": 6,
+            "name": "Nerta Dog"
+          },
+          {
+            "id": 7,
+            "name": "Jarrett Sharville"
+          },
+          {
+            "id": 8,
+            "name": "Stevy Grafhom"
+          },
+          {
+            "id": 9,
+            "name": "Aridatha Noyes"
+          },
+          {
+            "id": 10,
+            "name": "Kessiah Looks"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Zemlak, Bogisich and Turner",
+    "type": 1,
+    "referees": [
+      {
+        "id": 5,
+        "name": "Garry Croyden"
+      },
+      {
+        "id": 6,
+        "name": "Nesta Haynes"
+      },
+      {
+        "id": 7,
+        "name": "Stearne Rubi"
+      },
+      {
+        "id": 8,
+        "name": "Alvinia Simonetto"
+      }
+    ],
+    "teams": [
+      {
+        "id": 3,
+        "name": "Montezuma Bald Cypress",
+        "players": [
+          {
+            "id": 21,
+            "name": "Jere Gristock"
+          },
+          {
+            "id": 22,
+            "name": "Andrus Huggin"
+          },
+          {
+            "id": 23,
+            "name": "Charil Spera"
+          },
+          {
+            "id": 24,
+            "name": "Jose Olenichev"
+          },
+          {
+            "id": 25,
+            "name": "Omero Pundy"
+          },
+          {
+            "id": 26,
+            "name": "Evita Ciotti"
+          },
+          {
+            "id": 27,
+            "name": "Christie Shreeve"
+          },
+          {
+            "id": 28,
+            "name": "Gregoor Howford"
+          },
+          {
+            "id": 29,
+            "name": "Lowell Prichet"
+          },
+          {
+            "id": 30,
+            "name": "Jennifer Harbisher"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Winter Squash",
+        "players": [
+          {
+            "id": 31,
+            "name": "Sigrid Godding"
+          },
+          {
+            "id": 32,
+            "name": "Giraud Buckle"
+          },
+          {
+            "id": 33,
+            "name": "Jemmie Gercke"
+          },
+          {
+            "id": 34,
+            "name": "Fitz Semonin"
+          },
+          {
+            "id": 35,
+            "name": "Zolly Glowacz"
+          },
+          {
+            "id": 36,
+            "name": "Elyn Rays"
+          },
+          {
+            "id": 37,
+            "name": "Faun Marchent"
+          },
+          {
+            "id": 38,
+            "name": "Chickie Noel"
+          },
+          {
+            "id": 39,
+            "name": "Winfred Tomini"
+          },
+          {
+            "id": 40,
+            "name": "Iver Simonassi"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Blanda LLC",
+    "type": 2,
+    "referees": [
+      {
+        "id": 9,
+        "name": "Marrissa Mathews"
+      },
+      {
+        "id": 10,
+        "name": "Whitby Emnoney"
+      },
+      {
+        "id": 11,
+        "name": "Kermie Slidders"
+      },
+      {
+        "id": 12,
+        "name": "Bryant Malafe"
+      }
+    ],
+    "teams": [
+      {
+        "id": 5,
+        "name": "Yellow Streamers",
+        "players": [
+          {
+            "id": 41,
+            "name": "Oswell Trundler"
+          },
+          {
+            "id": 42,
+            "name": "Olwen Carberry"
+          },
+          {
+            "id": 43,
+            "name": "Dirk Martinez"
+          },
+          {
+            "id": 44,
+            "name": "Grissel MacDearmont"
+          },
+          {
+            "id": 45,
+            "name": "Frazier Cadore"
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "name": "Manduro",
+        "players": [
+          {
+            "id": 46,
+            "name": "Tressa Alldridge"
+          },
+          {
+            "id": 47,
+            "name": "Bowie Book"
+          },
+          {
+            "id": 48,
+            "name": "Timofei Crowley"
+          },
+          {
+            "id": 49,
+            "name": "Jessalin Ditchfield"
+          },
+          {
+            "id": 50,
+            "name": "Eirena Nucci"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Bode-Schuster",
+    "type": 2,
+    "referees": [
+      {
+        "id": 13,
+        "name": "Luther Skitteral"
+      },
+      {
+        "id": 14,
+        "name": "Persis Jeanon"
+      },
+      {
+        "id": 15,
+        "name": "Jermaine Dutnell"
+      },
+      {
+        "id": 16,
+        "name": "Alameda Davidwitz"
+      }
+    ],
+    "teams": [
+      {
+        "id": 7,
+        "name": "Pringle's Woolly Sunflower",
+        "players": [
+          {
+            "id": 51,
+            "name": "Beverly Tewkesbury."
+          },
+          {
+            "id": 52,
+            "name": "Mal Duffyn"
+          },
+          {
+            "id": 53,
+            "name": "Sean Klulik"
+          },
+          {
+            "id": 54,
+            "name": "Kimberly Royal"
+          },
+          {
+            "id": 55,
+            "name": "Agnesse Lyttle"
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "name": "Shortbristle Needle And Thread",
+        "players": [
+          {
+            "id": 56,
+            "name": "Ring Trickey"
+          },
+          {
+            "id": 57,
+            "name": "Hagen Handes"
+          },
+          {
+            "id": 58,
+            "name": "Sully Horsburgh"
+          },
+          {
+            "id": 59,
+            "name": "Rachele Allerton"
+          },
+          {
+            "id": 60,
+            "name": "Manny Killick"
+          }
+        ]
+      }
+    ]
+  }
+]

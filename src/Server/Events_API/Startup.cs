@@ -46,8 +46,12 @@ namespace Events_API
             services.AddScoped<ITemplateService, TemplateService>();
             services.AddScoped<IEventRepository, EventRepository>();
             services.AddScoped<IEventService, EventService>();
+            // Add the real API service for the real data
+            services.AddScoped<IGameService, GameMemoryService>();
             // Add AutoMapper
             services.AddAutoMapper(typeof(Startup));
+            // Add memory cache
+            services.AddMemoryCache();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
