@@ -1,25 +1,14 @@
 <div class="container p-3">
   <ng-container *ngIf="games$ | async as games; else loading">
-    <div
-      class="card text-center"
-      *ngFor="let game of games$ | async"
-      (click)="onClick(game)"
-      [ngClass]="{ 'bg-light': chosenId === game.id }"
-    >
-      <div class="card-header bg-primary text-white">
-        {{ game.name }}
+    <ng-container *ngFor="let game of games$ | async">
+      <div class="gs-game-card">
+        <gs-game-card
+          [game]="game"
+          [chosenId]="chosenId"
+          (clicked)="onClick($event)"
+        ></gs-game-card>
       </div>
-      <div class="card-body">
-        <div class="row gx-2">
-          <div class="col-6" *ngFor="let team of game.teams">
-            <div class="bg-light p-2 border h-100">{{ team.name }}</div>
-          </div>
-        </div>
-        <p class="card-text">
-          <small class="text-muted">{{ game.dateUtc | jsonDate }}</small>
-        </p>
-      </div>
-    </div>
+    </ng-container>
   </ng-container>
 </div>
 <ng-template #loading>

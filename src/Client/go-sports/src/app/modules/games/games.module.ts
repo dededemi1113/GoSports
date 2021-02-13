@@ -1,5 +1,5 @@
+import { GameCardComponent } from './components/game-card/game-card.component';
 import { SharedModule } from './../../shared/shared.module';
-import { GamesService } from './../../core/services/games.service';
 import { CoreModule } from './../../core/core.module';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
@@ -15,8 +15,8 @@ import { GameListComponent } from './components/game-list/game-list.component';
     CoreModule,
     SharedModule,
   ],
-  exports: [GameListComponent],
-  declarations: [GameListComponent],
+  exports: [GameListComponent, GameCardComponent],
+  declarations: [GameListComponent, GameCardComponent],
   providers: [],
 })
 export class GamesModule {}
