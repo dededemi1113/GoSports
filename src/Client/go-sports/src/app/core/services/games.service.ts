@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class GamesService {
-  private readonly _cacheKey = 'GAME';
+  private readonly _cacheKey = 'GS_GAME';
   constructor(
     // Angular Modules
     private api: ApiHttpService

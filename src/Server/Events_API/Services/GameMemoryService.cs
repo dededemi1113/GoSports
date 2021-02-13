@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 
 namespace Events_API.Services
 {
+    // use the real API service to call the backend API
     public class GameMemoryService : IGameService
     {
         private readonly IMemoryCache _cache;

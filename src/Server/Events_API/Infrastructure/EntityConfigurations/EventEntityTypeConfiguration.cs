@@ -17,9 +17,6 @@ namespace Events_API.Infrastructure.EntityConfigurations
                .ValueGeneratedOnAdd()
                .IsRequired();
 
-            builder.Property(evt => evt.EmployeeId)
-                .IsRequired();
-
             builder.Property(evt => evt.GameId)
                 .IsRequired();
 
