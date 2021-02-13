@@ -23,7 +23,7 @@
           <a
             class="nav-link"
             [ngClass]="{ active: path === '/home' }"
-            href="/home"
+            [routerLink]="['/home']"
             >Home</a
           >
         </li>
@@ -31,7 +31,7 @@
           <a
             class="nav-link"
             [ngClass]="{ active: path === '/events/add' }"
-            href="/events/add"
+            [routerLink]="['/events/add']"
             >New Event</a
           >
         </li>
@@ -39,7 +39,7 @@
           <a
             class="nav-link"
             [ngClass]="{ active: path === '/login' }"
-            href="/login"
+            [routerLink]="['/login']"
             >Change Employee Code</a
           >
         </li>
@@ -47,7 +47,7 @@
           <a
             class="nav-link"
             [ngClass]="{ active: path === '/games' }"
-            href="/games"
+            [routerLink]="['/games']"
             >Choose another Game</a
           >
         </li>
