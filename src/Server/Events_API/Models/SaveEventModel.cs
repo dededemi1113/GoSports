@@ -13,7 +13,7 @@ namespace Events_API.Models
         [Required]
         public string EmployeeId { get; set; }
         [Required]
-        [MaxLength(50)]
+        [StringLength(50)]
         public string Type { get; set; }
         public IList<SaveFieldModel> Fields { get; set; }
     }

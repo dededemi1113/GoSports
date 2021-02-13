@@ -9,6 +9,7 @@ using Events_API.Controllers;
 using Moq;
 using AutoMapper;
 using Events_API.Models.Templates;
+using Events_API.Models.Mapping;
 
 namespace Events_API.UnitTests.Controllers
 {
@@ -20,10 +21,13 @@ namespace Events_API.UnitTests.Controllers
             var mockSvc = new Mock<IGameService>();
             mockSvc.Setup(svc => svc.ListAsync())
                 .ReturnsAsync(GetGames());
-            var mockMapper = new Mock<IMapper>();
-            mockMapper.Setup(mapper => mapper.Map<IEnumerable<Game>, IEnumerable<GameModel>>(It.IsAny<IEnumerable<Game>>()))
-                .Returns(GetGameModels());
-            this._controller = new GameController(mockSvc.Object, mockMapper.Object);
+            var mockMapper = new MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile(new DTOToViewModelProfile());
+                cfg.AddProfile(new ViewModelToDTOProfile());
+            });
+            var mapper = mockMapper.CreateMapper();
+            this._controller = new GameController(mockSvc.Object, mapper);
         }
         [Fact]
         public async Task ListAsyncTest()

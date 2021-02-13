@@ -42,7 +42,7 @@ namespace Events_API
             services.AddDbContext<EventsDbContext>(options => options.UseSqlite(Configuration.GetConnectionString("SqliteConnection")));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             // Add the scoped repositories/services
-            services.AddScoped<ITemplateRepository>(serviceProvider => new TemplateRepository(Configuration["TemplateDirectory"]));
+            services.AddScoped<ITemplateRepository>(serviceProvider => new TemplateRepository(Configuration["TemplatePath"]));
             services.AddScoped<ITemplateService, TemplateService>();
             services.AddScoped<IEventRepository, EventRepository>();
             services.AddScoped<IEventService, EventService>();

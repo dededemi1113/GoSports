@@ -12,6 +12,10 @@ namespace Events_API.Models.Mapping
         public ViewModelToDTOProfile() : base()
         {
             CreateMap<EventsQueryModel, EventsQuery>();
+            CreateMap<EventModel, Event>();
+            CreateMap<FieldModel, Field>();
+            CreateMap<SaveEventModel, Event>();
+            CreateMap<SaveFieldModel, Field>();
         }
     }
 }

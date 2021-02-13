@@ -7,7 +7,9 @@ namespace Events_API.Models
         [Required]
         public int Id { get; set; }
         [Required]
-        [MaxLength(500)]
+        public int ConfigId { get; set; }
+        [Required]
+        [StringLength(500)]
         public string Value { get; set; }
     }
 }
