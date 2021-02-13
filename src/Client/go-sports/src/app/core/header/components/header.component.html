@@ -1,1 +1,66 @@
-header
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand logo">Go Sports!</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      (click)="toggleNavbar()"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      class="collapse navbar-collapse"
+      id="navbarSupportedContent"
+      [ngClass]="{ show: navbarOpen }"
+    >
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [ngClass]="{ active: path === '/home' }"
+            href="/home"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [ngClass]="{ active: path === '/events/add' }"
+            href="/events/add"
+            >New Event</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [ngClass]="{ active: path === '/login' }"
+            href="/login"
+            >Change Employee Code</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [ngClass]="{ active: path === '/games' }"
+            href="/games"
+            >Choose Game</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link disabled"
+            href="#"
+            tabindex="-1"
+            aria-disabled="true"
+            >Hi {{ employeeCode }}</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
