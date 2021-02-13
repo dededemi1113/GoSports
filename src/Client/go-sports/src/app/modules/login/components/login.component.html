@@ -1,1 +1,7 @@
-login
+<div
+  class="d-flex flex-column min-vh-100 justify-content-center align-items-center px-5"
+>
+  <p>Please input your Employee Code below.</p>
+  <p class="text-danger">&nbsp; {{ error }}</p>
+  <gs-digit-input (submitted)="onCodeSubmitted($event)"></gs-digit-input>
+</div>

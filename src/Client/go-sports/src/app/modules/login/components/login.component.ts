@@ -1,4 +1,6 @@
+import { AuthService } from './../../../core/services/auth.service';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'gs-login',
@@ -7,7 +9,18 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginComponent implements OnInit {
-  constructor() {}
+  error = '';
+  constructor(private authSvc: AuthService, private router: Router) {}
 
   ngOnInit() {}
+
+  onCodeSubmitted(code: string) {
+    if (code.length !== 4) {
+      this.error = 'Please input 4 digits';
+      return;
+    }
+    this.error = '';
+    this.authSvc.saveEmployeeCode(code);
+    this.router.navigate(['home']);
+  }
 }
