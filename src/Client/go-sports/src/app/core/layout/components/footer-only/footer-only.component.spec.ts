@@ -1,21 +1,21 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { HomeComponent } from './home.component';
+import { FooterOnlyComponent } from './footer-only.component';
 
-describe('HomeComponent', () => {
-  let component: HomeComponent;
-  let fixture: ComponentFixture<HomeComponent>;
+describe('FooterOnlyComponent', () => {
+  let component: FooterOnlyComponent;
+  let fixture: ComponentFixture<FooterOnlyComponent>;
 
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        declarations: [HomeComponent],
+        declarations: [FooterOnlyComponent],
       }).compileComponents();
     })
   );
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HomeComponent);
+    fixture = TestBed.createComponent(FooterOnlyComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
