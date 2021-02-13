@@ -1,5 +1,11 @@
 import { GamesService } from './../../../../core/services/games.service';
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { untilDestroyed, UntilDestroy } from '@ngneat/until-destroy';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
@@ -14,6 +20,8 @@ import { Router } from '@angular/router';
 export class GameListComponent implements OnInit {
   games$: Observable<any>;
   chosenId = -1;
+  @Output()
+  gameChosen: EventEmitter<any> = new EventEmitter<any>();
   constructor(private gamesSvc: GamesService, private router: Router) {
     this.games$ = this.gamesSvc.getGames();
   }
@@ -23,5 +31,6 @@ export class GameListComponent implements OnInit {
     this.chosenId = game.id;
     this.gamesSvc.setGame(game);
     this.router.navigate(['/home']);
+    this.gameChosen.emit(game);
   }
 }

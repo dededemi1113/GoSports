@@ -1,7 +1,8 @@
 import { AuthGuardService } from './../../core/services/auth-guard.service';
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { EventListComponent } from './components/event-list/event-list.component';
 import { HeaderFooterComponent } from 'src/app/core/layout/components/header-footer/header-footer.component';
+import { NgModule } from '@angular/core';
 
 export const eventRoutes: Routes = [
   {
@@ -11,3 +12,9 @@ export const eventRoutes: Routes = [
     canActivate: [AuthGuardService],
   },
 ];
+
+@NgModule({
+  imports: [RouterModule.forChild(eventRoutes)],
+  exports: [RouterModule],
+})
+export class EventsRoutingModule {}

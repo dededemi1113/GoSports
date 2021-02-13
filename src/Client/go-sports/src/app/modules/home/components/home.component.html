@@ -1,1 +1,9 @@
-home
+<div class="container pt-2" *ngIf="!!game; else chooseGame">
+  <gs-game-card [game]="game"></gs-game-card>
+</div>
+<ng-template #chooseGame>
+  <div class="text-center">
+    <h5 class="py-3 bg-light border mb-0">Please choose a Game</h5>
+    <gs-game-list (gameChosen)="onGameChosen($event)"></gs-game-list>
+  </div>
+</ng-template>
