@@ -1,0 +1,11 @@
+.container {
+  > .card:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+
+  .spinner-border {
+    position: absolute;
+    top: calc(50% - 1.5rem);
+    left: calc(50% - 1.5rem);
+  }
+}

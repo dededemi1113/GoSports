@@ -21,6 +21,6 @@ export class LoginComponent implements OnInit {
     }
     this.error = '';
     this.authSvc.saveEmployeeCode(code);
-    this.router.navigate(['home']);
+    this.router.navigate(['/home']);
   }
 }

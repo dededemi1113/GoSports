@@ -1,6 +1,7 @@
 import { AuthService } from './../../services/auth.service';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { GamesService } from '../../services/games.service';
 
 @Component({
   selector: 'gs-header',
@@ -12,10 +13,10 @@ export class HeaderComponent implements OnInit {
   navbarOpen = false;
   employeeCode: string | null = '';
   path = '';
+  game: any = null;
   constructor(private authSvc: AuthService, private router: Router) {
-    this.employeeCode = authSvc.getEmployeeCode();
-    this.path = router.url;
-    console.log(this.path);
+    this.employeeCode = this.authSvc.getEmployeeCode();
+    this.path = this.router.url;
   }
 
   ngOnInit() {}

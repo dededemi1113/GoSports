@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "name": "Zboncak and Sons",
+    "name": "Australian Super League",
     "type": 1,
     "referees": [
       {
@@ -118,7 +118,7 @@
   },
   {
     "id": 2,
-    "name": "Zemlak, Bogisich and Turner",
+    "name": "Australian Z League",
     "type": 1,
     "referees": [
       {
@@ -235,7 +235,7 @@
   },
   {
     "id": 3,
-    "name": "Blanda LLC",
+    "name": "Blue Bull Cup",
     "type": 2,
     "referees": [
       {
@@ -312,7 +312,7 @@
   },
   {
     "id": 4,
-    "name": "Bode-Schuster",
+    "name": "Rocket Season 2",
     "type": 2,
     "referees": [
       {
