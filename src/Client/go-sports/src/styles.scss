@@ -14,3 +14,19 @@ body {
 .digit {
   font-family: "Orbitron", sans-serif;
 }
+.game-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: inline-block;
+  vertical-align: middle;
+  &--1 {
+    background-color: #fff;
+    -webkit-mask: url(/assets/icons/game-type/1.svg) no-repeat center;
+    mask: url(/assets/icons/game-type/1.svg) no-repeat center;
+  }
+  &--2 {
+    background-color: #fff;
+    -webkit-mask: url(/assets/icons/game-type/2.svg) no-repeat center;
+    mask: url(/assets/icons/game-type/2.svg) no-repeat center;
+  }
+}

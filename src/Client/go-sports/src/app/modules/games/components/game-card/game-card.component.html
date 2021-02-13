@@ -3,8 +3,9 @@
   (click)="onClick(game)"
   [ngClass]="{ 'bg-light': chosenId === game.id }"
 >
-  <div class="card-header bg-primary text-white">
-    {{ game.name }}
+  <div class="card-header bg-primary text-white text-start">
+    <span>{{ game.name }}</span>
+    <div class="game-icon game-icon--{{ game.type }} float-end"></div>
   </div>
   <div class="card-body">
     <div class="row gx-2">
