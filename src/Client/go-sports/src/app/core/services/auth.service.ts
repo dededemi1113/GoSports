@@ -13,4 +13,7 @@ export class AuthService {
     const code = this.getEmployeeCode();
     return code != null;
   }
+  public saveEmployeeCode(code: string): void {
+    localStorage.setItem(this._key, code);
+  }
 }
