@@ -25,7 +25,17 @@ export class EventFieldRefereeComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    // make sure the default is selected
+    if (
+      !this.value &&
+      this.config.isRequired &&
+      this.game.referees.length > 0
+    ) {
+      this.value = this.game.referees[0].id;
+      this.valueChanged.emit(this.value);
+    }
+  }
   onTextChange(event: any) {
     this.valueChanged.emit(event.target.value);
   }

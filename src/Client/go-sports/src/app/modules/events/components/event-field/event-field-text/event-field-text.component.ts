@@ -18,13 +18,20 @@ export class EventFieldTextComponent implements OnInit {
   config: any;
   @Input()
   value: string = '';
+  @Input()
+  isInvalid = false;
   @Output()
   valueChanged = new EventEmitter<string>();
-
   constructor() {}
 
   ngOnInit() {}
   onTextChange(event: any) {
-    this.valueChanged.emit(event.target.value);
+    const value = event.target.value;
+    if (this.config.isRequired && !value) {
+      this.isInvalid = true;
+      return;
+    }
+    this.isInvalid = false;
+    this.valueChanged.emit(value);
   }
 }

@@ -1,10 +1,11 @@
 <div class="form-floating mb-3">
   <input
-    type="number"
+    type="text"
     class="form-control"
     id="{{ config.id }}"
     [value]="value"
     (change)="onTextChange($event)"
+    [ngClass]="{ 'is-invalid': isInvalid }"
   />
   <label for="{{ config.id }}" class="form-label">{{ config.question }}</label>
 </div>

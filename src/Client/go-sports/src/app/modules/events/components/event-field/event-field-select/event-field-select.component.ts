@@ -25,6 +25,10 @@ export class EventFieldSelectComponent implements OnInit {
 
   ngOnInit() {
     this.options = JSON.parse(this.config.data);
+    if(!this.value && this.config.isRequired && this.options.length>0) {
+      this.value = this.options[0];
+      this.valueChanged.emit(this.value);
+    }
   }
   onTextChange(event: any) {
     this.valueChanged.emit(event.target.value);

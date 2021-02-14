@@ -21,6 +21,8 @@ export class EventFieldComponent implements OnInit {
   value: string = '';
   @Input()
   game: any;
+  @Input()
+  isInvalid = false;
   @Output()
   valueChanged = new EventEmitter<string>();
 

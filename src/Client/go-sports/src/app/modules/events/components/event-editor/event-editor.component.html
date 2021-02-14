@@ -5,8 +5,19 @@
   <gs-event-field
     [config]="fieldConfig"
     [value]="getFieldValue(fieldConfig.id)"
+    [isInvalid]="fieldConfig.isInvalid"
     [game]="game"
     (valueChanged)="onFieldChange($event, fieldConfig)"
     *ngFor="let fieldConfig of eventConfig.fieldConfigs"
   ></gs-event-field>
+  <div class="d-grid">
+    <button
+      class="btn btn-primary"
+      type="button"
+      (click)="onSave()"
+      [disabled]="isSubmitting"
+    >
+      Save
+    </button>
+  </div>
 </div>

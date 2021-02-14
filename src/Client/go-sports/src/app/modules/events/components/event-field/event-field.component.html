@@ -3,6 +3,7 @@
     *ngSwitchCase="constants.FieldType.Text"
     [config]="config"
     [value]="value"
+    [isInvalid]="isInvalid"
     (valueChanged)="onChange($event)"
   ></gs-event-field-text>
   <gs-event-field-select
@@ -29,6 +30,7 @@
     *ngSwitchCase="constants.FieldType.Number"
     [config]="config"
     [value]="value"
+    [isInvalid]="isInvalid"
     (valueChanged)="onChange($event)"
   ></gs-event-field-number>
 </ng-container>

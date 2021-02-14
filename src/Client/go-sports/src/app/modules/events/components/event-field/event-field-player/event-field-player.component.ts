@@ -41,6 +41,10 @@ export class EventFieldPlayerComponent implements OnInit {
     if (!this.value) {
       this.team = this.game.teams[0];
       this.value = this.game.teams[0].players[0].id.toString();
+      if (this.config.isRequired) {
+        this.valueChanged.emit(this.value);
+      }
+      return;
     }
     for (let i = 0; i < this.game.teams.length; i++) {
       let found = false;
