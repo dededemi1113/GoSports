@@ -93,7 +93,7 @@ export class EventEditorComponent implements OnInit {
     }
     // ensure the integrity of data
     if (!this.event.timeUtc) {
-      this.event.timeUtc = new Date();
+      this.event.timeUtc = new Date().toISOString();
     }
     this.event.type = this.eventConfig.eventType;
     this.event.employeeId = this.authSvc.getEmployeeCode();
