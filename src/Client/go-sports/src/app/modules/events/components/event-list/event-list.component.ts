@@ -10,6 +10,7 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'gs-event-list',
@@ -27,7 +28,8 @@ export class EventListComponent implements OnInit {
   constructor(
     private gameSvc: GamesService,
     private templateSvc: TemplatesService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private router: Router
   ) {
     this._updateGame();
   }
@@ -46,8 +48,9 @@ export class EventListComponent implements OnInit {
     this.game = this.gameSvc.getSelectedGame();
     // choose a game first
     if (!this.game) {
-      this.template = null;
-      this.loaded = true;
+      this.router.navigate(['/games'], {
+        state: { data: { callback: '/events' } },
+      });
       return;
     }
     // find the related event template

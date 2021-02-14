@@ -1,15 +1,18 @@
-<div class="container p-3">
-  <ng-container *ngIf="games$ | async as games; else loading">
-    <ng-container *ngFor="let game of games$ | async">
-      <div class="gs-game-card">
-        <gs-game-card
-          [game]="game"
-          [chosenId]="chosenId"
-          (clicked)="onClick($event)"
-        ></gs-game-card>
-      </div>
+<div class="text-center">
+  <h5 class="py-3 bg-light border mb-0">Please choose a Game</h5>
+  <div class="container p-3">
+    <ng-container *ngIf="games$ | async as games; else loading">
+      <ng-container *ngFor="let game of games$ | async">
+        <div class="gs-game-card">
+          <gs-game-card
+            [game]="game"
+            [chosenId]="chosenId"
+            (clicked)="onClick($event)"
+          ></gs-game-card>
+        </div>
+      </ng-container>
     </ng-container>
-  </ng-container>
+  </div>
 </div>
 <ng-template #loading>
   <div class="gs-loading">

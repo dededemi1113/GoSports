@@ -1,31 +1,20 @@
 <ng-container *ngIf="loaded; else loading"
-  ><ng-container *ngIf="!!template; else chooseGame"
-    ><div class="container p-0">
-      <div
-        role="button"
-        *ngFor="let evt of template.events"
-        class="p-3 border text-center"
-        [ngClass]="{
-          'text-white': evt.eventType === selectedEvent?.eventType,
-          'bg-secondary': evt.eventType === selectedEvent?.eventType,
-          'bg-light': evt.eventType !== selectedEvent?.eventType
-        }"
-        (click)="onEventClick(evt)"
-      >
-        {{ evt.name }}
-      </div>
+  ><div class="container p-0">
+    <div
+      role="button"
+      *ngFor="let evt of template.events"
+      class="p-3 border text-center"
+      [ngClass]="{
+        'text-white': evt.eventType === selectedEvent?.eventType,
+        'bg-secondary': evt.eventType === selectedEvent?.eventType,
+        'bg-light': evt.eventType !== selectedEvent?.eventType
+      }"
+      (click)="onEventClick(evt)"
+    >
+      {{ evt.name }}
     </div>
-  </ng-container>
-</ng-container>
-<ng-template #chooseGame>
-  <div class="text-center">
-    <h5 class="py-3 bg-light border mb-0">Please choose a Game</h5>
-    <gs-game-list
-      (gameChosen)="onGameChosen($event)"
-      callback="/events"
-    ></gs-game-list>
   </div>
-</ng-template>
+</ng-container>
 <ng-template #loading
   ><div class="gs-loading">
     <div class="spinner-border text-secondary" role="status">

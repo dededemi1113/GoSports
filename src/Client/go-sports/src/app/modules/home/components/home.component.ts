@@ -2,6 +2,7 @@ import { EventsService } from './../../../core/services/events.service';
 import { TemplatesService } from './../../../core/services/templates.service';
 import { GamesService } from './../../../core/services/games.service';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'gs-home',
@@ -14,9 +15,14 @@ export class HomeComponent implements OnInit {
   constructor(
     private gameSvc: GamesService,
     private templateSvc: TemplatesService,
-    private eventSvc: EventsService
+    private eventSvc: EventsService,
+    private router: Router
   ) {
     this.game = this.gameSvc.getSelectedGame();
+    if (!this.game) {
+      this.router.navigate(['/games']);
+      return;
+    }
     this.templateSvc.getTemplates().subscribe((res) => {
       console.log(res);
     });

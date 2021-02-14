@@ -28,6 +28,15 @@ export class GameListComponent implements OnInit {
   @Input()
   callback = '/home';
   constructor(private gamesSvc: GamesService, private router: Router) {
+    var nav = this.router.getCurrentNavigation();
+    if (
+      nav != null &&
+      nav.extras &&
+      nav.extras.state &&
+      nav.extras.state.data.callback
+    ) {
+      this.callback = nav.extras.state.data.callback;
+    }
     this.games$ = this.gamesSvc.getGames().pipe(shareReplay(1));
   }
 
@@ -35,7 +44,7 @@ export class GameListComponent implements OnInit {
   onClick(game: any) {
     this.chosenId = game.id;
     this.gamesSvc.setGame(game);
-    this.router.navigate([this.callback]);
+    this.router.navigate([this.callback], { state: { data: game } });
     this.gameChosen.emit(game);
   }
 }
