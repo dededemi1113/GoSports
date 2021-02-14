@@ -1,3 +1,4 @@
+import { NavigateService } from './../../../../core/services/navigate.service';
 import { shareReplay } from 'rxjs/operators';
 import { GamesService } from './../../../../core/services/games.service';
 import {
@@ -27,15 +28,14 @@ export class GameListComponent implements OnInit {
   gameChosen: EventEmitter<any> = new EventEmitter<any>();
   @Input()
   callback = '/home';
-  constructor(private gamesSvc: GamesService, private router: Router) {
-    var nav = this.router.getCurrentNavigation();
-    if (
-      nav != null &&
-      nav.extras &&
-      nav.extras.state &&
-      nav.extras.state.data.callback
-    ) {
-      this.callback = nav.extras.state.data.callback;
+  constructor(
+    private gamesSvc: GamesService,
+    private router: Router,
+    private navSvc: NavigateService
+  ) {
+    var state = this.navSvc.getStateData();
+    if (state) {
+      this.callback = state.callback;
     }
     this.games$ = this.gamesSvc.getGames().pipe(shareReplay(1));
   }

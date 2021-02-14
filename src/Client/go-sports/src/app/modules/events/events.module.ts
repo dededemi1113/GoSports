@@ -5,11 +5,12 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
 import { EventsRoutingModule } from './events.routing';
+import { EventEditorComponent } from './components/event-editor/event-editor.component';
 
 @NgModule({
   imports: [CommonModule, EventsRoutingModule, CoreModule, GamesModule],
   exports: [],
-  declarations: [EventListComponent],
+  declarations: [EventListComponent, EventEditorComponent],
   providers: [],
 })
 export class EventsModule {}

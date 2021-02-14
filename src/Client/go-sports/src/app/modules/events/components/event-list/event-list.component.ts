@@ -23,8 +23,6 @@ export class EventListComponent implements OnInit {
   game: any;
   loaded = false;
   selectedEvent: any;
-  @Output()
-  eventSelected = new EventEmitter<any>();
   constructor(
     private gameSvc: GamesService,
     private templateSvc: TemplatesService,
@@ -41,7 +39,9 @@ export class EventListComponent implements OnInit {
   }
   onEventClick(evt: any) {
     this.selectedEvent = evt;
-    this.eventSelected.emit(evt);
+    this.router.navigate(['/events/edit'], {
+      state: { data: { event: evt, callback: '/home' } },
+    });
   }
 
   private _updateGame() {
