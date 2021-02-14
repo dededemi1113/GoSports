@@ -18,7 +18,7 @@
       <p class="mb-0">{{ field | fieldValue: getFieldConfig(field) }}</p>
     </li>
   </ul>
-  <div class="card-footer text-muted" (click)="onClick()">
+  <div class="card-footer text-muted" (click)="onHeaderClick()">
     {{ event.timeUtc | jsonDate }}
   </div>
 </div>
