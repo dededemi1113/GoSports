@@ -41,11 +41,21 @@ body {
   display: inline-block;
   vertical-align: middle;
   &.clear {
-    background-color: #ccc;
+    background-color: #deb887;
     -webkit-mask: url(/assets/icons/clear-24px.svg) no-repeat center;
     mask: url(/assets/icons/game-type/clear-24px.svg) no-repeat center;
     &:hover {
       background-color: brown;
     }
+  }
+  &.expanded {
+    background-color: #999;
+    -webkit-mask: url(/assets/icons/expand_more-24px.svg) no-repeat center;
+    mask: url(/assets/icons/game-type/expand_more-24px.svg) no-repeat center;
+  }
+  &.collapsed {
+    background-color: #999;
+    -webkit-mask: url(/assets/icons/expand_less-24px.svg) no-repeat center;
+    mask: url(/assets/icons/game-type/expand_less-24px.svg) no-repeat center;
   }
 }

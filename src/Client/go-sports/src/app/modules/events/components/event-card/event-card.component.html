@@ -1,18 +1,24 @@
-<div class="card" (click)="onClick()" role="button">
-  <div class="card-header">
+<div class="card" role="button">
+  <div class="card-header" (click)="onHeaderClick()">
     <span>{{ eventConfig.name }}</span>
     <div class="float-end icon-24 clear" (click)="onDelete($event)"></div>
+    <div
+      class="float-end icon-24 mr-2"
+      [ngClass]="{ expanded: !isExpand, collapsed: isExpand }"
+    ></div>
   </div>
   <ul
     class="list-group list-group-flush"
     *ngIf="eventConfig.fieldConfigs && eventConfig.fieldConfigs.length > 0"
+    (click)="onClick()"
+    [ngStyle]="{ display: isExpand ? 'block' : 'none' }"
   >
     <li class="list-group-item" *ngFor="let field of event.fields">
       <h5>{{ getFieldConfig(field).question }}</h5>
       <p class="mb-0">{{ field | fieldValue: getFieldConfig(field) }}</p>
     </li>
   </ul>
-  <div class="card-footer text-muted">
+  <div class="card-footer text-muted" (click)="onClick()">
     {{ event.timeUtc | jsonDate }}
   </div>
 </div>

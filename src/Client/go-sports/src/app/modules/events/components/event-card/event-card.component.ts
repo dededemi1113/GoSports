@@ -27,6 +27,7 @@ export class EventCardComponent implements OnInit {
   delete = new EventEmitter<any>();
   eventConfig: any;
   fields = [];
+  isExpand = false;
   constructor() {}
 
   ngOnInit() {
@@ -47,5 +48,12 @@ export class EventCardComponent implements OnInit {
   onDelete(event: MouseEvent) {
     event.stopPropagation();
     this.delete.emit(this.event);
+  }
+  onHeaderClick() {
+    if (!this.event.fields || this.event.fields.length === 0) {
+      this.onClick();
+      return;
+    }
+    this.isExpand = !this.isExpand;
   }
 }
