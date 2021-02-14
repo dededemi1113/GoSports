@@ -97,3 +97,7 @@ Client: Angular 11 + Boostrap 5.0
 9. Click the `X` icon to delete it.
 
 ![Delete event](images/readme/localhost_4200_delete_event.png)
+
+10. Complex field and validation demo in the `Game End` event.
+
+![Validation](images/readme/localhost_4200_validation.png)
