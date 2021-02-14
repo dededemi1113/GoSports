@@ -102,6 +102,11 @@ class TeamScoresDescriber implements Describable {
     return result;
   }
 }
+class TextAreaFieldDescriber implements Describable {
+  getDescription(value: string): string {
+    return value;
+  }
+}
 
 const createDescriber = function (
   configType: number,
@@ -121,6 +126,8 @@ const createDescriber = function (
       return new RefereeFieldDescriber(game);
     case constants.FieldType.TeamScores:
       return new TeamScoresDescriber(game);
+    case constants.FieldType.TextArea:
+      return new TextAreaFieldDescriber();
   }
   return null;
 };

@@ -16,5 +16,6 @@ export class Constants {
     Referee: 6,
     Dropdown: 7,
     TeamScores: 8,
+    TextArea: 9,
   });
 }

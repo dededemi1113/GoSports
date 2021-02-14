@@ -9,6 +9,7 @@ namespace Events_API.Domain.Models
         Number = 5,
         Referee = 6,
         Dropdown = 7,
-        TeamScores = 8
+        TeamScores = 8,
+        TextArea = 9
     }
 }

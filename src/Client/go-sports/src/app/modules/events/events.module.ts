@@ -17,6 +17,7 @@ import { EventFieldNumberComponent } from './components/event-field/event-field-
 import { FieldValuePipe } from './pipes/event-field.pipe';
 import { EventCardComponent } from './components/event-card/event-card.component';
 import { EventFieldService } from './services/event-field.service';
+import { EventFieldTextAreaComponent } from './components/event-field/event-field-text-area/event-field-text-area.component';
 
 @NgModule({
   imports: [
@@ -39,6 +40,7 @@ import { EventFieldService } from './services/event-field.service';
     EventFieldTeamScoresComponent,
     FieldValuePipe,
     EventCardComponent,
+    EventFieldTextAreaComponent,
   ],
   providers: [EventFieldService],
 })

@@ -1,0 +1,10 @@
+<div class="form-floating mb-3">
+  <textarea
+    class="form-control h-8rem"
+    id="{{ config.id }}"
+    (change)="onTextChange($event)"
+    [ngClass]="{ 'is-invalid': isInvalid }"
+    >{{ value }}</textarea
+  >
+  <label for="{{ config.id }}" class="form-label">{{ config.question }}</label>
+</div>

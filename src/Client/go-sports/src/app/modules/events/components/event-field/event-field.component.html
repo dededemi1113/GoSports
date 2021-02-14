@@ -44,4 +44,11 @@
     (valueChanged)="onChange($event)"
     (inited)="onFieldInited($event)"
   ></gs-event-field-team-scores>
+  <gs-event-field-text-area
+    *ngSwitchCase="constants.FieldType.TextArea"
+    [config]="config"
+    [value]="value"
+    (valueChanged)="onChange($event)"
+    (inited)="onFieldInited($event)"
+  ></gs-event-field-text-area>
 </ng-container>
