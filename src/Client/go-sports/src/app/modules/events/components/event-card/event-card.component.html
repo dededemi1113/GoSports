@@ -1,0 +1,17 @@
+<div class="card" (click)="onClick()">
+  <div class="card-header">
+    {{ eventConfig.name }}
+  </div>
+  <ul
+    class="list-group list-group-flush"
+    *ngIf="eventConfig.fieldConfigs && eventConfig.fieldConfigs.length > 0"
+  >
+    <li class="list-group-item" *ngFor="let field of event.fields">
+      <h5>{{ getFieldConfig(field).question }}</h5>
+      <p class="mb-0">{{ field | fieldValue: getFieldConfig(field) }}</p>
+    </li>
+  </ul>
+  <div class="card-footer text-muted">
+    {{ event.timeUtc | jsonDate }}
+  </div>
+</div>

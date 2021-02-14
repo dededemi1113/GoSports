@@ -1,7 +1,12 @@
 import { EventsService } from './../../../core/services/events.service';
 import { TemplatesService } from './../../../core/services/templates.service';
 import { GamesService } from './../../../core/services/games.service';
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  OnInit,
+} from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -20,7 +25,8 @@ export class HomeComponent implements OnInit {
     private gameSvc: GamesService,
     private templateSvc: TemplatesService,
     private eventSvc: EventsService,
-    private router: Router
+    private router: Router,
+    private cdr: ChangeDetectorRef
   ) {
     this.game = this.gameSvc.getSelectedGame();
     if (!this.game) {
@@ -30,6 +36,7 @@ export class HomeComponent implements OnInit {
     this.templateSvc.getTemplates().subscribe((res) => {
       this.template = res.find((tmp: any) => tmp.gameType === this.game.type);
       this.templateLoaded = true;
+      this.cdr.markForCheck();
       console.log(this.template);
     });
     this.eventSvc
@@ -37,6 +44,7 @@ export class HomeComponent implements OnInit {
       .subscribe((res) => {
         this.events = res.items;
         this.eventLoaded = true;
+        this.cdr.markForCheck();
         console.log(res.items);
       });
   }
@@ -56,5 +64,20 @@ export class HomeComponent implements OnInit {
     return eventConfig.fieldConfigs.find(
       (cfg: any) => cfg.id === fieldConfigId
     );
+  }
+  onEventClicked(event: any) {
+    const eventConfig = this.template.events.find(
+      (evt: any) => evt.eventType === event.type
+    );
+    this.router.navigate(['/events/edit'], {
+      state: {
+        data: {
+          eventConfig: eventConfig,
+          game: this.game,
+          event: event,
+          callback: '/home',
+        },
+      },
+    });
   }
 }

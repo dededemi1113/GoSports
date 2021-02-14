@@ -1,3 +1,4 @@
+import { SharedModule } from './../../shared/shared.module';
 import { EventFieldTeamScoresComponent } from './components/event-field/event-field-team-scores/event-field-team-scores.component';
 import { EventFieldSelectComponent } from './components/event-field/event-field-select/event-field-select.component';
 import { EventFieldTextComponent } from './components/event-field/event-field-text/event-field-text.component';
@@ -14,10 +15,18 @@ import { EventFieldRefereeComponent } from './components/event-field/event-field
 import { EventFieldPlayerComponent } from './components/event-field/event-field-player/event-field-player.component';
 import { EventFieldNumberComponent } from './components/event-field/event-field-number/event-field-number.component';
 import { FieldValuePipe } from './pipes/event-field.pipe';
+import { EventCardComponent } from './components/event-card/event-card.component';
+import { EventFieldService } from './services/event-field.service';
 
 @NgModule({
-  imports: [CommonModule, EventsRoutingModule, CoreModule, GamesModule],
-  exports: [FieldValuePipe],
+  imports: [
+    CommonModule,
+    EventsRoutingModule,
+    CoreModule,
+    GamesModule,
+    SharedModule,
+  ],
+  exports: [FieldValuePipe, EventCardComponent],
   declarations: [
     EventListComponent,
     EventEditorComponent,
@@ -29,7 +38,8 @@ import { FieldValuePipe } from './pipes/event-field.pipe';
     EventFieldNumberComponent,
     EventFieldTeamScoresComponent,
     FieldValuePipe,
+    EventCardComponent,
   ],
-  providers: [],
+  providers: [EventFieldService],
 })
 export class EventsModule {}

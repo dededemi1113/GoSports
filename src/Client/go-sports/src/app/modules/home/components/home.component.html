@@ -1,8 +1,15 @@
 <div class="container pt-3">
-  <gs-game-card [game]="game"></gs-game-card>
+  <div class="mb-3">
+    <gs-game-card [game]="game"></gs-game-card>
+  </div>
   <div *ngIf="templateLoaded && eventLoaded">
     <ng-container *ngFor="let event of events">
-      <div></div>
+      <gs-event-card
+        [game]="game"
+        [event]="event"
+        [template]="template"
+        (clicked)="onEventClicked($event)"
+      ></gs-event-card>
     </ng-container>
   </div>
 </div>

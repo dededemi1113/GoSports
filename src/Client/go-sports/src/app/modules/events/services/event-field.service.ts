@@ -1,10 +1,6 @@
-import { shareReplay } from 'rxjs/operators';
+import { Injectable } from '@angular/core';
 import { Constants } from '../../../core/config/constants';
 import { GamesService } from '../../../core/services/games.service';
-import { TemplatesService } from '../../../core/services/templates.service';
-import { Injectable } from '@angular/core';
-import { analyzeAndValidateNgModules } from '@angular/compiler';
-import { constants } from 'buffer';
 export interface Validatable {
   validate(value: string): boolean;
 }
@@ -12,7 +8,7 @@ export interface Describable {
   getDescription(value: string): string;
 }
 
-Injectable({ providedIn: 'root' });
+@Injectable()
 export class EventFieldService {
   constructor(private constants: Constants, private gameSvc: GamesService) {}
   public getDescription(field: any, fieldConfig: any): string {
@@ -74,7 +70,7 @@ class RefereeFieldDescriber implements Describable {
       return '';
     }
     let name = '';
-    this.game.referees.foreach((referee: any) => {
+    this.game.referees.forEach((referee: any) => {
       if (referee.id.toString() === value) {
         name = referee.name;
         return;
