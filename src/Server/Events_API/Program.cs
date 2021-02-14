@@ -8,6 +8,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using Events_API.Persistence.Contexts;
+using Microsoft.EntityFrameworkCore;
+using System.IO;
 
 namespace Events_API
 {
@@ -35,8 +37,18 @@ namespace Events_API
             {
                 using (var context = scope.ServiceProvider.GetService<EventsDbContext>())
                 {
+                    ensureDbPath(context.Database.GetDbConnection().DataSource);
                     context.Database.EnsureCreated();
                 }
+            }
+        }
+
+        private static void ensureDbPath(string path)
+        {
+            FileInfo info = new FileInfo(path);
+            if (info.Directory != null && !info.Directory.Exists)
+            {
+                info.Directory.Create();
             }
         }
     }
