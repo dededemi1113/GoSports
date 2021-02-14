@@ -7,7 +7,7 @@ namespace Events_API.UnitTests.Repositories
 {
     public class TemplateReporitoryTest
     {
-        private readonly string _path = "Templates/Soccer.json";
+        private readonly string _path = "Templates/GameTemplates.json";
         private readonly TemplateRepository _repository;
         public TemplateReporitoryTest()
         {
@@ -17,7 +17,7 @@ namespace Events_API.UnitTests.Repositories
         public async Task ListAsyncTest()
         {
             var result = await this._repository.ListAsync();
-            int expectedCount = 1;
+            int expectedCount = 2;
 
             Assert.NotNull(result);
             Assert.Equal(expectedCount, result.Count());

@@ -1,0 +1,181 @@
+[
+  {
+    "game_type": 1,
+    "events": [
+      { "name": "Game Start", "event_type": "GAME_START", "field_configs": [] },
+      {
+        "name": "First Half End",
+        "event_type": "FIRST_HALF_END",
+        "field_configs": []
+      },
+      {
+        "name": "Second Half Start",
+        "event_type": "SECOND_HALF_START",
+        "field_configs": []
+      },
+      {
+        "name": "Second Half End",
+        "event_type": "SECOND_HALF_END",
+        "field_configs": []
+      },
+      {
+        "name": "Extra Time Start",
+        "event_type": "EXTRA_TIME_START",
+        "field_configs": []
+      },
+      {
+        "name": "Game End",
+        "event_type": "GAME_END",
+        "field_configs": [
+          {
+            "Id": 1,
+            "question": "Please input the scores",
+            "type": 8,
+            "is_required": true
+          }
+        ]
+      },
+      {
+        "name": "Score",
+        "event_type": "SCORE",
+        "field_configs": [
+          {
+            "Id": 1,
+            "question": "Who scored",
+            "type": 3,
+            "is_required": true
+          },
+          {
+            "Id": 2,
+            "question": "How many",
+            "type": 5,
+            "is_required": true
+          }
+        ]
+      },
+      {
+        "name": "Foul",
+        "event_type": "FOUL",
+        "field_configs": [
+          {
+            "Id": 1,
+            "question": "Who committed the foul",
+            "type": 3,
+            "is_required": true
+          },
+          {
+            "Id": 2,
+            "question": "What's the foul",
+            "type": 7,
+            "is_required": true,
+            "data": "[\"General\", \"Kick\", \"Trip\", \"Strike\", \"Push\", \"Jump\", \"Hold or Pull\", \"Dangerous Play\", \"Impeding the Progress of an Opponent\", \"Preventing the goalkeeper from releasing the ball from his hands\"]"
+          },
+          {
+            "Id": 3,
+            "question": "Who's the referee",
+            "type": 6
+          },
+          {
+            "Id": 4,
+            "question": "What's the result",
+            "type": 7,
+            "data": "[\"None\", \"Yellow Card\", \"Red Card\"]"
+          },
+          {
+            "Id": 5,
+            "question": "Description",
+            "type": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "game_type": 2,
+    "events": [
+      { "name": "Game Start", "event_type": "GAME_START", "field_configs": [] },
+      {
+        "name": "Quarter End",
+        "event_type": "QUARTER_END",
+        "field_configs": []
+      },
+      {
+        "name": "Quarter Start",
+        "event_type": "QUARTER_START",
+        "field_configs": []
+      },
+      {
+        "name": "Game End",
+        "event_type": "GAME_END",
+        "field_configs": [
+          {
+            "Id": 1,
+            "question": "Please input the scores",
+            "type": 8,
+            "is_required": true
+          }
+        ]
+      },
+      {
+        "name": "Score",
+        "event_type": "SCORE",
+        "field_configs": [
+          {
+            "Id": 1,
+            "question": "Who scored",
+            "type": 3,
+            "is_required": true
+          },
+          {
+            "Id": 2,
+            "question": "How many",
+            "type": 5,
+            "is_required": true
+          },
+          {
+            "Id": 2,
+            "question": "Shot Type",
+            "type": 7,
+            "is_required": false,
+            "data": "[\"Outside the three-point line\", \"Insed the three-point line\", \"Free shot\"]"
+          }
+        ]
+      },
+      {
+        "name": "Foul",
+        "event_type": "FOUL",
+        "field_configs": [
+          {
+            "Id": 1,
+            "question": "Who committed the foul",
+            "type": 3,
+            "is_required": true
+          },
+          {
+            "Id": 2,
+            "question": "What's the foul",
+            "type": 7,
+            "is_required": true,
+            "data": "[\"Personal foul\", \"Flagrant foul\", \"Technical foul\"]"
+          },
+          {
+            "Id": 3,
+            "question": "Who's the referee",
+            "type": 6
+          },
+          {
+            "Id": 4,
+            "question": "What's the result",
+            "type": 7,
+            "data": "[\"None\", \"Yellow Card\", \"Red Card\"]"
+          },
+          {
+            "Id": 5,
+            "question": "Description",
+            "type": 1
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -16,8 +16,8 @@ namespace Events_API.Persistence.Repositories
         public async Task<IEnumerable<GameTemplate>> ListAsync()
         {
             string json = await System.IO.File.ReadAllTextAsync(this._path);
-            GameTemplate template = JsonConvert.DeserializeObject<GameTemplate>(json);
-            return new List<GameTemplate> { template };
+            var templates = JsonConvert.DeserializeObject<List<GameTemplate>>(json);
+            return templates;
         }
     }
 }
