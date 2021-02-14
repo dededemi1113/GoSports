@@ -22,6 +22,8 @@ Client: Angular 11 + Boostrap 5.0
 
 6. The client app is fully responsive. I checked it in the Chrome's mobile mode and it works fine.
 
+7. Considering the usability I simplified most of the input. e.g. Use a simple digit input to eliminate the use of the complex mobile keyword input. 
+
 ## Setting up locally
 
 1. Get the code.
