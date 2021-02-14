@@ -1,3 +1,4 @@
+import { shareReplay } from 'rxjs/operators';
 import { GamesService } from './../../../../core/services/games.service';
 import {
   ChangeDetectionStrategy,
@@ -19,11 +20,12 @@ import { Router } from '@angular/router';
 })
 export class GameListComponent implements OnInit {
   games$: Observable<any>;
+  games: any[] = [];
   chosenId = -1;
   @Output()
   gameChosen: EventEmitter<any> = new EventEmitter<any>();
   constructor(private gamesSvc: GamesService, private router: Router) {
-    this.games$ = this.gamesSvc.getGames();
+    this.games$ = this.gamesSvc.getGames().pipe(shareReplay(1));
   }
 
   ngOnInit() {}
