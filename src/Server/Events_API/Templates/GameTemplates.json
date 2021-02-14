@@ -127,7 +127,7 @@
             "is_required": true
           },
           {
-            "Id": 2,
+            "Id": 3,
             "question": "Shot Type",
             "type": 7,
             "is_required": false,
