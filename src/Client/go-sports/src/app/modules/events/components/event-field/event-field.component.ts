@@ -23,6 +23,8 @@ export class EventFieldComponent implements OnInit {
   game: any;
   @Input()
   isInvalid = false;
+  @Input()
+  isInvalidObj: any = null;
   @Output()
   valueChanged = new EventEmitter<string>();
 

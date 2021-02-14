@@ -1,0 +1,31 @@
+<div class="mb-3">
+  <div class="rounded-top bg-light border py-2 px-3">
+    {{ config.question }}
+  </div>
+  <div
+    class="input-group"
+    *ngFor="let team of game.teams; let idx = index; let last = last"
+  >
+    <span
+      class="input-group-text border-bottom-left-radius-0 border-top-left-radius-0 w-75"
+      [ngClass]="{
+        'border-bottom-left-radius-0': !last,
+        'border-top-left-radius-0': true
+      }"
+      >{{ team.name }}</span
+    >
+    <input
+      type="number"
+      aria-label="First name"
+      class="form-control border-bottom-right-radius-0 border-top-right-radius-0"
+      [ngClass]="{
+        'is-invalid':
+          isInvalidObj && isInvalidObj.indexOf(team.id.toString()) > -1,
+        'border-bottom-right-radius-0': !last,
+        'border-top-right-radius-0': true
+      }"
+      value="getScore(team.id)"
+      (change)="onTextChange($event, team)"
+    />
+  </div>
+</div>

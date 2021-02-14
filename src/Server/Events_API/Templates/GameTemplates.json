@@ -44,12 +44,6 @@
             "question": "Who scored",
             "type": 3,
             "is_required": true
-          },
-          {
-            "Id": 2,
-            "question": "How many",
-            "type": 5,
-            "is_required": true
           }
         ]
       },

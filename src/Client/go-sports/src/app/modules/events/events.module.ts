@@ -1,3 +1,4 @@
+import { EventFieldTeamScoresComponent } from './components/event-field/event-field-team-scores/event-field-team-scores.component';
 import { EventFieldSelectComponent } from './components/event-field/event-field-select/event-field-select.component';
 import { EventFieldTextComponent } from './components/event-field/event-field-text/event-field-text.component';
 import { EventFieldComponent } from './components/event-field/event-field.component';
@@ -25,6 +26,7 @@ import { EventFieldNumberComponent } from './components/event-field/event-field-
     EventFieldRefereeComponent,
     EventFieldPlayerComponent,
     EventFieldNumberComponent,
+    EventFieldTeamScoresComponent,
   ],
   providers: [],
 })

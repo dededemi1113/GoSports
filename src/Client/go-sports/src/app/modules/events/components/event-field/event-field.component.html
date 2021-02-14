@@ -33,4 +33,12 @@
     [isInvalid]="isInvalid"
     (valueChanged)="onChange($event)"
   ></gs-event-field-number>
+  <gs-event-field-team-scores
+    *ngSwitchCase="constants.FieldType.TeamScores"
+    [config]="config"
+    [value]="value"
+    [isInvalidObj]="isInvalidObj"
+    [game]="game"
+    (valueChanged)="onChange($event)"
+  ></gs-event-field-team-scores>
 </ng-container>
