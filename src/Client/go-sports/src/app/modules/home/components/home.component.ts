@@ -21,6 +21,8 @@ export class HomeComponent implements OnInit {
   events = [];
   eventLoaded = false;
   templateLoaded = false;
+  confirmDelete = false;
+  eventToDelete: any;
   constructor(
     private gameSvc: GamesService,
     private templateSvc: TemplatesService,
@@ -39,14 +41,7 @@ export class HomeComponent implements OnInit {
       this.cdr.markForCheck();
       console.log(this.template);
     });
-    this.eventSvc
-      .getEvents({ gameId: this.game.id, startIndex: 0, fetchSize: 50 })
-      .subscribe((res) => {
-        this.events = res.items;
-        this.eventLoaded = true;
-        this.cdr.markForCheck();
-        console.log(res.items);
-      });
+    this._loadEvent();
   }
 
   ngOnInit() {}
@@ -69,6 +64,9 @@ export class HomeComponent implements OnInit {
     const eventConfig = this.template.events.find(
       (evt: any) => evt.eventType === event.type
     );
+    if (!eventConfig.fieldConfigs || eventConfig.fieldConfigs.length === 0) {
+      return;
+    }
     this.router.navigate(['/events/edit'], {
       state: {
         data: {
@@ -79,5 +77,37 @@ export class HomeComponent implements OnInit {
         },
       },
     });
+  }
+  onNewEvent() {
+    this.router.navigate(['/events']);
+  }
+  onDeleteClicked(evt: any) {
+    this.eventToDelete = evt;
+    this.confirmDelete = true;
+  }
+  onDialogClick(event: MouseEvent) {
+    event.stopPropagation();
+  }
+  closeDialog() {
+    this.eventToDelete = null;
+    this.confirmDelete = false;
+  }
+  onConfirmDelete(event: any) {
+    if (this.eventToDelete != null) {
+      this.eventSvc.delete(this.eventToDelete.id).subscribe((res: any) => {
+        this.closeDialog();
+        this._loadEvent();
+      });
+    }
+  }
+  private _loadEvent() {
+    this.eventSvc
+      .getEvents({ gameId: this.game.id, startIndex: 0, fetchSize: 50 })
+      .subscribe((res) => {
+        this.events = res.items;
+        this.eventLoaded = true;
+        this.cdr.markForCheck();
+        console.log(res.items);
+      });
   }
 }

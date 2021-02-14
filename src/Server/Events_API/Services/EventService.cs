@@ -44,6 +44,8 @@ namespace Events_API.Services
 
                 // update game type
                 evt.GameType = game.Type;
+                // update time
+                evt.TimeUtc = DateTime.UtcNow;
 
                 await this._eventRepository.AddAsync(evt);
                 await this._unitOfWork.CompleteAsync();

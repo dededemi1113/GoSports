@@ -35,3 +35,17 @@ body {
   top: calc(50% - 1.5rem);
   left: calc(50% - 1.5rem);
 }
+.icon-24 {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: inline-block;
+  vertical-align: middle;
+  &.clear {
+    background-color: #ccc;
+    -webkit-mask: url(/assets/icons/clear-24px.svg) no-repeat center;
+    mask: url(/assets/icons/game-type/clear-24px.svg) no-repeat center;
+    &:hover {
+      background-color: brown;
+    }
+  }
+}

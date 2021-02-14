@@ -9,8 +9,6 @@ namespace Events_API.Models
         [Required]
         public int GameId { get; set; }
         [Required]
-        public DateTime TimeUtc { get; set; }
-        [Required]
         public string EmployeeId { get; set; }
         [Required]
         [StringLength(50)]

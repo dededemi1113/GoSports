@@ -1,6 +1,7 @@
-<div class="card" (click)="onClick()">
+<div class="card" (click)="onClick()" role="button">
   <div class="card-header">
-    {{ eventConfig.name }}
+    <span>{{ eventConfig.name }}</span>
+    <div class="float-end icon-24 clear" (click)="onDelete($event)"></div>
   </div>
   <ul
     class="list-group list-group-flush"

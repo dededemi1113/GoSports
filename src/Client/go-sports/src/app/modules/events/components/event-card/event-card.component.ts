@@ -23,6 +23,8 @@ export class EventCardComponent implements OnInit {
   game: any;
   @Output()
   clicked = new EventEmitter<any>();
+  @Output()
+  delete = new EventEmitter<any>();
   eventConfig: any;
   fields = [];
   constructor() {}
@@ -41,5 +43,9 @@ export class EventCardComponent implements OnInit {
   }
   onClick() {
     this.clicked.emit(this.event);
+  }
+  onDelete(event: MouseEvent) {
+    event.stopPropagation();
+    this.delete.emit(this.event);
   }
 }
