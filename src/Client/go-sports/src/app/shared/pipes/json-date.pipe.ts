@@ -13,6 +13,6 @@ export class JsonDatePipe implements PipeTransform {
     if (!date) {
       return '';
     }
-    return formatDate(date, 'dd/MM/yyyy', 'en-US');
+    return formatDate(date, 'dd/MM/yyyy hh:mm a', 'en-AU');
   }
 }

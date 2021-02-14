@@ -25,7 +25,7 @@ namespace Events_API.Persistence.Repositories
             // get total count first
             int recordCount = await queryable.CountAsync();
             // get the records
-            List<Event> events = await queryable.Skip(query.StartIndex).Take(query.FetchSize).ToListAsync();
+            List<Event> events = await queryable.OrderBy(evt => evt.TimeUtc).Skip(query.StartIndex).Take(query.FetchSize).ToListAsync();
             // return the combination
             return new QueryResult<Event>
             {

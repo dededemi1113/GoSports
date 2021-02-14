@@ -28,9 +28,20 @@ namespace Events_API.Services
                 return CreateSampleGames();
             });
             // update the start time for testing purpose. make sure that we alway have games to return
+            Random random = new Random();
             foreach (var game in games)
             {
-                game.DateUtc = DateTime.UtcNow.Date;
+                DateTime time = DateTime.UtcNow.AddMinutes(random.Next(0, 120));
+                int minute = time.Minute;
+                if (minute < 30)
+                {
+                    time = time.AddHours(1).AddMinutes(-minute);
+                }
+                else
+                {
+                    time = time.AddMinutes(60 - minute);
+                }
+                game.DateUtc = time;
             }
             return games;
         }
