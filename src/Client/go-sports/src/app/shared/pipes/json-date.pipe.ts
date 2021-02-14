@@ -9,6 +9,9 @@ export class JsonDatePipe implements PipeTransform {
     if (!value) {
       return '';
     }
+    if (value.toLowerCase().indexOf('z') != value.length - 1) {
+      value += 'Z';
+    }
     const date = new Date(value);
     if (!date) {
       return '';
