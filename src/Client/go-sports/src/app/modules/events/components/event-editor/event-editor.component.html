@@ -5,9 +5,9 @@
   <gs-event-field
     [config]="fieldConfig"
     [value]="getFieldValue(fieldConfig.id)"
-    [isInvalid]="fieldConfig.isInvalid"
     [game]="game"
     (valueChanged)="onFieldChange($event, fieldConfig)"
+    (inited)="onFieldInited($event)"
     *ngFor="let fieldConfig of eventConfig.fieldConfigs"
   ></gs-event-field>
   <div class="d-grid">

@@ -1,3 +1,4 @@
+import { Validatable } from './../event-field.service';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -5,6 +6,7 @@ import {
   OnInit,
   Output,
   EventEmitter,
+  AfterViewInit,
 } from '@angular/core';
 
 @Component({
@@ -13,26 +15,40 @@ import {
   styleUrls: ['event-field-number.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class EventFieldNumberComponent implements OnInit {
+export class EventFieldNumberComponent
+  implements OnInit, Validatable, AfterViewInit {
   @Input()
   config: any;
   @Input()
   value: string = '';
-  @Input()
-  isInvalid = false;
   @Output()
   valueChanged = new EventEmitter<string>();
+  @Output()
+  inited = new EventEmitter<Validatable>();
+  isInvalid = false;
 
   constructor() {}
 
   ngOnInit() {}
-  onTextChange(event: any) {
-    const value = event.target.value;
-    if (this.config.isRequired && !value) {
+  ngAfterViewInit() {
+    this.inited.emit(this);
+  }
+  validate(value: string): boolean {
+    if (!this.config.isRequired) {
+      this.isInvalid = false;
+      return true;
+    }
+    if (this.config.isRequired && (value === '' || value === null)) {
       this.isInvalid = true;
-      return;
+      return false;
     }
     this.isInvalid = false;
-    this.valueChanged.emit(value);
+    return true;
+  }
+  onTextChange(event: any) {
+    const value = event.target.value;
+    if (this.validate(value)) {
+      this.valueChanged.emit(value);
+    }
   }
 }

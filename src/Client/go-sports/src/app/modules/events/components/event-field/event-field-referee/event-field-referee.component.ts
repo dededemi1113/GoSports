@@ -1,4 +1,6 @@
+import { Validatable } from './../event-field.service';
 import {
+  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
   EventEmitter,
@@ -13,7 +15,8 @@ import {
   styleUrls: ['event-field-referee.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class EventFieldRefereeComponent implements OnInit {
+export class EventFieldRefereeComponent
+  implements OnInit, Validatable, AfterViewInit {
   @Input()
   config: any;
   @Input()
@@ -22,6 +25,8 @@ export class EventFieldRefereeComponent implements OnInit {
   game: any;
   @Output()
   valueChanged = new EventEmitter<string>();
+  @Output()
+  inited = new EventEmitter<Validatable>();
 
   constructor() {}
 
@@ -36,7 +41,13 @@ export class EventFieldRefereeComponent implements OnInit {
       this.valueChanged.emit(this.value);
     }
   }
+  ngAfterViewInit() {
+    this.inited.emit(this);
+  }
   onTextChange(event: any) {
     this.valueChanged.emit(event.target.value);
+  }
+  validate(value: string): boolean {
+    return true;
   }
 }

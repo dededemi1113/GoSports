@@ -1,3 +1,4 @@
+import { Validatable } from './../event-field.service';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -5,6 +6,7 @@ import {
   OnInit,
   Output,
   EventEmitter,
+  AfterViewInit,
 } from '@angular/core';
 
 @Component({
@@ -13,23 +15,28 @@ import {
   styleUrls: ['event-field-team-scores.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class EventFieldTeamScoresComponent implements OnInit {
+export class EventFieldTeamScoresComponent
+  implements OnInit, Validatable, AfterViewInit {
   @Input()
   config: any;
   @Input()
   value: string = '';
   @Input()
-  isInvalidObj: string[] = [];
-  @Input()
   game: any = null;
   @Output()
   valueChanged = new EventEmitter<string>();
+  @Output()
+  inited = new EventEmitter<Validatable>();
   // score<0 means no value
   teamScores: { teamId: number; score: number }[] = [];
+  isInvalidObj: string[] = [];
   constructor() {}
 
   ngOnInit() {
     this._updateTeamScores();
+  }
+  ngAfterViewInit() {
+    this.inited.emit(this);
   }
   onTextChange(event: any, team: any) {
     const value = event.target.value;
@@ -48,7 +55,7 @@ export class EventFieldTeamScoresComponent implements OnInit {
       }
     }
 
-    if (this._validate()) {
+    if (this.validate(JSON.stringify(this.teamScores))) {
       this.valueChanged.emit(this.value);
     }
   }
@@ -69,18 +76,29 @@ export class EventFieldTeamScoresComponent implements OnInit {
       this.teamScores.push({ teamId: team.id, score: -1 });
     });
   }
-  private _validate(): boolean {
+  validate(value: string): boolean {
     if (!this.config.isRequired) {
-      this.value = JSON.stringify(this.teamScores);
+      this.value = value;
       return true;
     }
-    const invalidItems = this.teamScores.filter((team) => team.score < 0);
+    let teamScores;
+    if (!value) {
+      teamScores = [];
+      this.game.teams.forEach((team: any) => {
+        teamScores.push({ teamId: team.id, score: -1 });
+      });
+    } else {
+      teamScores = JSON.parse(value);
+    }
+    const invalidItems = teamScores.filter((team: any) => team.score < 0);
     if (invalidItems && invalidItems.length > 0) {
-      this.isInvalidObj = invalidItems.map((item) => item.teamId.toString());
+      this.isInvalidObj = invalidItems.map((item: any) =>
+        item.teamId.toString()
+      );
       return false;
     }
     this.isInvalidObj = [];
-    this.value = JSON.stringify(this.teamScores);
+    this.value = value;
     return true;
   }
 }

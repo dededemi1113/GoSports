@@ -1,4 +1,6 @@
+import { Validatable } from './../event-field.service';
 import {
+  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
   EventEmitter,
@@ -13,7 +15,8 @@ import {
   styleUrls: ['event-field-player.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class EventFieldPlayerComponent implements OnInit {
+export class EventFieldPlayerComponent
+  implements OnInit, Validatable, AfterViewInit {
   @Input()
   config: any;
   @Input()
@@ -22,11 +25,16 @@ export class EventFieldPlayerComponent implements OnInit {
   game: any;
   @Output()
   valueChanged = new EventEmitter<string>();
+  @Output()
+  inited = new EventEmitter<Validatable>();
   team: any = null;
   constructor() {}
 
   ngOnInit() {
     this._updateTeam();
+  }
+  ngAfterViewInit() {
+    this.inited.emit(this);
   }
   onTeamChange(event: any) {
     this.team = this.game.teams.find(
@@ -35,6 +43,11 @@ export class EventFieldPlayerComponent implements OnInit {
   }
   onPlayerChange(event: any) {
     this.valueChanged.emit(event.target.value);
+  }
+
+  validate(value: string): boolean {
+    // we've made the first player the default. no need to validate
+    return true;
   }
 
   private _updateTeam() {

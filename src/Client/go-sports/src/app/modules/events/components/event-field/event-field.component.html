@@ -3,14 +3,15 @@
     *ngSwitchCase="constants.FieldType.Text"
     [config]="config"
     [value]="value"
-    [isInvalid]="isInvalid"
     (valueChanged)="onChange($event)"
+    (inited)="onFieldInited($event)"
   ></gs-event-field-text>
   <gs-event-field-select
     *ngSwitchCase="constants.FieldType.Dropdown"
     [config]="config"
     [value]="value"
     (valueChanged)="onChange($event)"
+    (inited)="onFieldInited($event)"
   ></gs-event-field-select>
   <gs-event-field-referee
     *ngSwitchCase="constants.FieldType.Referee"
@@ -18,6 +19,7 @@
     [value]="value"
     [game]="game"
     (valueChanged)="onChange($event)"
+    (inited)="onFieldInited($event)"
   ></gs-event-field-referee>
   <gs-event-field-player
     *ngSwitchCase="constants.FieldType.Player_Single"
@@ -25,20 +27,21 @@
     [value]="value"
     [game]="game"
     (valueChanged)="onChange($event)"
+    (inited)="onFieldInited($event)"
   ></gs-event-field-player>
   <gs-event-field-number
     *ngSwitchCase="constants.FieldType.Number"
     [config]="config"
     [value]="value"
-    [isInvalid]="isInvalid"
     (valueChanged)="onChange($event)"
+    (inited)="onFieldInited($event)"
   ></gs-event-field-number>
   <gs-event-field-team-scores
     *ngSwitchCase="constants.FieldType.TeamScores"
     [config]="config"
     [value]="value"
-    [isInvalidObj]="isInvalidObj"
     [game]="game"
     (valueChanged)="onChange($event)"
+    (inited)="onFieldInited($event)"
   ></gs-event-field-team-scores>
 </ng-container>

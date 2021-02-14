@@ -1,3 +1,4 @@
+import { Validatable } from './../event-field/event-field.service';
 import { NavigateService } from './../../../../core/services/navigate.service';
 import {
   ChangeDetectionStrategy,
@@ -19,6 +20,7 @@ export class EventEditorComponent implements OnInit {
   game: any = null;
   event: any = null;
   isSubmitting = false;
+  private _fields: { field: Validatable; configId: number }[] = [];
   constructor(private navSvc: NavigateService, private router: Router) {
     var state = this.navSvc.getStateData();
     if (state && state.eventConfig) {
@@ -65,20 +67,20 @@ export class EventEditorComponent implements OnInit {
       field.value = value;
     }
   }
+  onFieldInited(evt: { field: Validatable; configId: number }) {
+    this._fields.push(evt);
+  }
   onSave() {
     let isInvalid = false;
     // validate
-    this.eventConfig.fieldConfigs.forEach((config: any) => {
-      if (!config.isRequired) {
-        return;
-      }
-      const fld = this.event.fields.find(
-        (field: any) => field.configId === config.id
+    this._fields.forEach((fld: { field: Validatable; configId: number }) => {
+      const field = this.event.fields.find(
+        (f: any) => f.configId === fld.configId
       );
-      if (!fld || !fld.value) {
-        config.isInvalid = true;
+      let value = '';
+      if (field) value = field.value;
+      if (!fld.field.validate(value)) {
         isInvalid = true;
-        return;
       }
     });
     if (isInvalid) {
