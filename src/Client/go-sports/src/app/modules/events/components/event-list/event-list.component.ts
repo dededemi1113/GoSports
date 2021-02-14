@@ -40,7 +40,7 @@ export class EventListComponent implements OnInit {
   onEventClick(evt: any) {
     this.selectedEvent = evt;
     this.router.navigate(['/events/edit'], {
-      state: { data: { event: evt, callback: '/home' } },
+      state: { data: { eventConfig: evt, game: this.game, callback: '/home' } },
     });
   }
 

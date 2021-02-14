@@ -1,0 +1,37 @@
+<div class="mb-3">
+  <div>
+    <select
+      class="form-select"
+      (change)="onTeamChange($event)"
+      style="border-bottom-left-radius: 0; border-bottom-right-radius: 0"
+    >
+      <option
+        *ngFor="let tm of game.teams"
+        [value]="tm.id.toString()"
+        [selected]="tm.id.toString() === team.id"
+      >
+        {{ tm.name }}
+      </option>
+    </select>
+  </div>
+  <div class="form-floating">
+    <select
+      class="form-select"
+      (change)="onPlayerChange($event)"
+      style="
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-top: 0;
+      "
+    >
+      <option
+        *ngFor="let player of team.players"
+        [value]="player.id.toString()"
+        [selected]="player.id.toString() === value"
+      >
+        {{ player.name }}
+      </option>
+    </select>
+    <label class="form-label">{{ config.question }}</label>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="form-floating mb-3">
+  <select
+    class="form-select"
+    id="{{ config.id }}"
+    (change)="onTextChange($event)"
+  >
+    <option *ngFor="let opt of options" [selected]="opt === value">
+      {{ opt }}
+    </option>
+  </select>
+  <label for="{{ config.id }}" class="form-label">{{ config.question }}</label>
+</div>

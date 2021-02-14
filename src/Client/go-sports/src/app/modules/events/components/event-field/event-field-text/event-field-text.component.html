@@ -1,0 +1,10 @@
+<div class="form-floating mb-3">
+  <input
+    type="text"
+    class="form-control"
+    id="{{ config.id }}"
+    [value]="value"
+    (change)="onTextChange($event)"
+  />
+  <label for="{{ config.id }}" class="form-label">{{ config.question }}</label>
+</div>

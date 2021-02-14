@@ -1,1 +1,12 @@
-edit
+<div class="text-center">
+  <h5 class="py-3 bg-light border mb-0">{{ eventConfig.name }}</h5>
+</div>
+<div class="container p-3">
+  <gs-event-field
+    [config]="fieldConfig"
+    [value]="getFieldValue(fieldConfig.id)"
+    [game]="game"
+    (valueChanged)="onFieldChange($event, fieldConfig)"
+    *ngFor="let fieldConfig of eventConfig.fieldConfigs"
+  ></gs-event-field>
+</div>
