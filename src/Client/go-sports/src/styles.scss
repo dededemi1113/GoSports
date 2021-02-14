@@ -30,3 +30,8 @@ body {
     mask: url(/assets/icons/game-type/2.svg) no-repeat center;
   }
 }
+.gs-loading {
+  position: absolute;
+  top: calc(50% - 1.5rem);
+  left: calc(50% - 1.5rem);
+}

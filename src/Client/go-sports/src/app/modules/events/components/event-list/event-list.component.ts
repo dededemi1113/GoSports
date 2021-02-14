@@ -1,4 +1,15 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { TemplatesService } from './../../../../core/services/templates.service';
+import { GamesService } from './../../../../core/services/games.service';
+import { Constants } from './../../../../core/config/constants';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 
 @Component({
   selector: 'gs-event-list',
@@ -7,7 +18,45 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EventListComponent implements OnInit {
-  constructor() {}
+  template: any;
+  game: any;
+  loaded = false;
+  selectedEvent: any;
+  @Output()
+  eventSelected = new EventEmitter<any>();
+  constructor(
+    private gameSvc: GamesService,
+    private templateSvc: TemplatesService,
+    private cdr: ChangeDetectorRef
+  ) {
+    this._updateGame();
+  }
 
   ngOnInit() {}
+
+  onGameChosen(game: any) {
+    this._updateGame();
+  }
+  onEventClick(evt: any) {
+    this.selectedEvent = evt;
+    this.eventSelected.emit(evt);
+  }
+
+  private _updateGame() {
+    this.game = this.gameSvc.getSelectedGame();
+    // choose a game first
+    if (!this.game) {
+      this.template = null;
+      this.loaded = true;
+      return;
+    }
+    // find the related event template
+    this.templateSvc.getTemplates().subscribe((templates) => {
+      this.template = templates.find(
+        (tmp: any) => tmp.gameType === this.game.type
+      );
+      this.loaded = true;
+      this.cdr.markForCheck();
+    });
+  }
 }

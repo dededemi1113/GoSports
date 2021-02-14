@@ -4,6 +4,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   EventEmitter,
+  Input,
   OnInit,
   Output,
 } from '@angular/core';
@@ -24,6 +25,8 @@ export class GameListComponent implements OnInit {
   chosenId = -1;
   @Output()
   gameChosen: EventEmitter<any> = new EventEmitter<any>();
+  @Input()
+  callback = '/home';
   constructor(private gamesSvc: GamesService, private router: Router) {
     this.games$ = this.gamesSvc.getGames().pipe(shareReplay(1));
   }
@@ -32,7 +35,7 @@ export class GameListComponent implements OnInit {
   onClick(game: any) {
     this.chosenId = game.id;
     this.gamesSvc.setGame(game);
-    this.router.navigate(['/home']);
+    this.router.navigate([this.callback]);
     this.gameChosen.emit(game);
   }
 }

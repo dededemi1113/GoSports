@@ -1,6 +1,6 @@
 import { ApiHttpService } from './api-http.service';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class TemplatesService {
@@ -8,7 +8,14 @@ export class TemplatesService {
     // Angular Modules
     private api: ApiHttpService
   ) {}
+  // cache at the client side, refreshes every time when reloading
+  private _templates: any;
   public getTemplates(): Observable<any> {
-    return this.api.get('template');
+    if (this._templates) {
+      return of(this._templates);
+    }
+    var templates$ = this.api.get('template');
+    templates$.subscribe((res) => (this._templates = res));
+    return templates$;
   }
 }
