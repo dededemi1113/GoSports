@@ -13,10 +13,11 @@ import { EventEditorComponent } from './components/event-editor/event-editor.com
 import { EventFieldRefereeComponent } from './components/event-field/event-field-referee/event-field-referee.component';
 import { EventFieldPlayerComponent } from './components/event-field/event-field-player/event-field-player.component';
 import { EventFieldNumberComponent } from './components/event-field/event-field-number/event-field-number.component';
+import { FieldValuePipe } from './pipes/event-field.pipe';
 
 @NgModule({
   imports: [CommonModule, EventsRoutingModule, CoreModule, GamesModule],
-  exports: [],
+  exports: [FieldValuePipe],
   declarations: [
     EventListComponent,
     EventEditorComponent,
@@ -27,6 +28,7 @@ import { EventFieldNumberComponent } from './components/event-field/event-field-
     EventFieldPlayerComponent,
     EventFieldNumberComponent,
     EventFieldTeamScoresComponent,
+    FieldValuePipe,
   ],
   providers: [],
 })

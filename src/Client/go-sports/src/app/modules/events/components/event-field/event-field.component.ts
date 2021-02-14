@@ -1,4 +1,4 @@
-import { Validatable } from './event-field.service';
+import { Validatable } from '../../services/event-field.service';
 import { Constants } from './../../../../core/config/constants';
 import {
   AfterViewInit,

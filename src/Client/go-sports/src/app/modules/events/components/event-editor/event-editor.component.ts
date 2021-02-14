@@ -1,4 +1,6 @@
-import { Validatable } from './../event-field/event-field.service';
+import { AuthService } from './../../../../core/services/auth.service';
+import { EventsService } from './../../../../core/services/events.service';
+import { Validatable } from '../../services/event-field.service';
 import { NavigateService } from './../../../../core/services/navigate.service';
 import {
   ChangeDetectionStrategy,
@@ -21,13 +23,16 @@ export class EventEditorComponent implements OnInit {
   event: any = null;
   isSubmitting = false;
   private _fields: { field: Validatable; configId: number }[] = [];
-  constructor(private navSvc: NavigateService, private router: Router) {
+  constructor(
+    private navSvc: NavigateService,
+    private router: Router,
+    private eventSvc: EventsService,
+    private authSvc: AuthService
+  ) {
     var state = this.navSvc.getStateData();
     if (state && state.eventConfig) {
       this.eventConfig = state.eventConfig;
       this.game = state.game;
-      console.log(this.eventConfig);
-      console.log(this.game);
       // initialize event
       if (state.event) {
         this.event = state.event;
@@ -91,6 +96,19 @@ export class EventEditorComponent implements OnInit {
       this.event.timeUtc = new Date();
     }
     this.event.type = this.eventConfig.eventType;
+    this.event.employeeId = this.authSvc.getEmployeeCode();
     this.isSubmitting = true;
+    if (this.event.id) {
+      this.eventSvc.update(this.event).subscribe((res: any) => {
+        this._handleResult(res);
+      });
+    } else {
+      this.eventSvc.add(this.event).subscribe((res: any) => {
+        this._handleResult(res);
+      });
+    }
+  }
+  private _handleResult(res: any) {
+    this.router.navigate(['/home']);
   }
 }

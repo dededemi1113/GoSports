@@ -12,6 +12,10 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   game: any = null;
+  template: any = null;
+  events = [];
+  eventLoaded = false;
+  templateLoaded = false;
   constructor(
     private gameSvc: GamesService,
     private templateSvc: TemplatesService,
@@ -24,12 +28,16 @@ export class HomeComponent implements OnInit {
       return;
     }
     this.templateSvc.getTemplates().subscribe((res) => {
-      console.log(res);
+      this.template = res.find((tmp: any) => tmp.gameType === this.game.type);
+      this.templateLoaded = true;
+      console.log(this.template);
     });
     this.eventSvc
-      .getEvents({ gameId: 1, startIndex: 0, fetchSize: 50 })
+      .getEvents({ gameId: this.game.id, startIndex: 0, fetchSize: 50 })
       .subscribe((res) => {
-        console.log(res);
+        this.events = res.items;
+        this.eventLoaded = true;
+        console.log(res.items);
       });
   }
 
@@ -37,5 +45,16 @@ export class HomeComponent implements OnInit {
 
   onGameChosen(game: any) {
     this.game = game;
+  }
+  getFieldType(eventType: string, fieldConfigId: number): any {
+    const eventConfig = this.template.events.find(
+      (evt: any) => evt.eventType === eventType
+    );
+    if (!eventConfig) {
+      return null;
+    }
+    return eventConfig.fieldConfigs.find(
+      (cfg: any) => cfg.id === fieldConfigId
+    );
   }
 }
