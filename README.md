@@ -8,7 +8,7 @@ Server: Asp.Net Web API 5.0 + Entity Framework Core + Sqlite + XUnit
 
 Client: Angular 11 + Boostrap 5.0
 
-## Caveats
+## Features
 
 1. This app uses custom fields to implement the event system. Different events have multiple custom fields which have different behavior. In this way it ensures the high extensiblity of the different format of events and multiple types of games. Check this commit [How to add a new Field Type](https://github.com/dededemi1113/GoSports/commit/1d43aff5f9e32811f330eff9a4f0ccac33252b92) to see how easily we can add a new field type to meet the future changes.
 
