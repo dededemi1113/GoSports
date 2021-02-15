@@ -64,7 +64,7 @@ Client: Angular 11 + Boostrap 5.0
 
 ## User Process
 
-1. Assume each employee has an Employee code. If there's no employee code was input, the login screen would appear and ask for the Employee code.
+1. Assume each employee has a 4-digits Employee code. If there's no employee code was input, the login screen would appear and ask for the Employee code.
 
 ![Employee code](images/readme/localhost_4200_login.png)
 
